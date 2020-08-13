@@ -21,6 +21,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Unsplash React Native demo. ",
+    "githubUrl": "https://github.com/robertram/unsplash-demo"
   }
 }
