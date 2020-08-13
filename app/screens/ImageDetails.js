@@ -5,16 +5,29 @@ import {
   StatusBar,
   Text,
   Image,
-  View
+  View,
 } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import colors from '../constants/colors';
+import { Ionicons } from '@expo/vector-icons';
 
-export default ({ route }) => {
+import colors from '../constants/colors';
+import { RowItem } from '../components/RowItem';
+
+export default ({ route, navigation }) => {
   const { id, alt_description, urls, created_at, description, likes, user } = route.params;
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
+      <StatusBar backgroundColor={colors.white} style="light" />
+      <View style={styles.backButton}>
+        <RowItem
+          title="Back"
+          onPress={() => { navigation.goBack() }}
+          options
+          leftIcon={
+            <Ionicons name="ios-arrow-back" size={24} color="white" />
+          }
+        />
+      </View>
       <View style={styles.logoContainer}>
         <Image
           resizeMode='cover'
@@ -37,7 +50,7 @@ export default ({ route }) => {
         <Text style={styles.text}>{alt_description}</Text>
 
         <View style={styles.likesContainer}>
-          <AntDesign name="heart" size={10} color={colors.gray} />          
+          <AntDesign name="heart" size={10} color={colors.gray} />
           <Text style={styles.likes}>{likes} Likes</Text>
         </View>
       </View>
@@ -52,8 +65,16 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     alignItems: 'center',
   },
+  backButton: {
+    width: '100%',
+    justifyContent: 'flex-start',
+    alignItems: 'baseline'
+  },
+  headerIcon: {
+    margin: 10
+  },
   logoContainer: {
-    paddingTop: 40,
+    paddingTop: 20,
     paddingBottom: 40,
   },
   logo: {
@@ -74,7 +95,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.white,
-    fontWeight: 'bold',
+    fontWeight: 'normal',
     fontSize: 18,
     textAlign: 'center',
     marginBottom: 20,
@@ -85,10 +106,11 @@ const styles = StyleSheet.create({
   likes: {
     color: colors.white,
     fontWeight: 'bold',
-    fontSize: 19,
+    fontSize: 18,
+    lineHeight: 21,
     marginLeft: 10,
   },
-  likesContainer:{
+  likesContainer: {
     flexDirection: 'row',
     alignItems: 'baseline',
   },

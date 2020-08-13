@@ -7,6 +7,8 @@ import {
   StatusBar,
 } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import colors from '../constants/colors';
 import { RowItem, RowSeparator } from '../components/RowItem';
@@ -24,7 +26,7 @@ export default () => {
       <ScrollView>
         <RowItem
           title="Themes"
-          onPress={() => alert('todo!')}
+          onPress={() => alert('In development')}
           rightIcon={
             <Entypo name="chevron-right" size={20} color={colors.blue} />
           }
@@ -33,21 +35,21 @@ export default () => {
         <RowSeparator />
 
         <RowItem
-          title="React Native Basics"
+          title="My Website"
           onPress={() =>
             openLink(
-              'https://learn.handlebarlabs.com/p/react-native-basics-build-a-currency-converter'
+              'http://robertdevops.com/'
             )
           }
-          rightIcon={<Entypo name="export" size={20} color={colors.blue} />}
+          rightIcon={<MaterialCommunityIcons name="web" size={24} color={colors.blue} />}
         />
 
         <RowSeparator />
 
         <RowItem
-          title="React Native by Example"
-          onPress={() => openLink('https://reactnativebyexample.com')}
-          rightIcon={<Entypo name="export" size={20} color={colors.blue} />}
+          title="LinkedIn"
+          onPress={() => openLink('https://www.linkedin.com/in/robert-ramirez-marin/')}
+          rightIcon={<FontAwesome name="linkedin-square" size={24} color={colors.blue} />}
         />
       </ScrollView>
     </SafeAreaView>

@@ -5,7 +5,10 @@ import { StyleSheet, View, SafeAreaView, Text, Button, FlatList, Image, Touchabl
 import { connect, useDispatch } from 'react-redux';
 import { addNumber, axiosSearch } from '../actions';
 import colors from '../constants/colors';
-import Header from '../components/Header';
+import { RowItem } from '../components/RowItem';
+import { AntDesign } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons';
+
 
 class Home extends React.Component {
   componentDidMount() {
@@ -14,7 +17,17 @@ class Home extends React.Component {
   render() {
     return (
       <SafeAreaView style={[styles.container]}>
-        <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
+        <StatusBar backgroundColor={colors.white} style="light" />
+        <View style={styles.backButton}>
+          <RowItem
+            title=""
+            onPress={() => { this.props.navigation.openDrawer() }}
+            leftIcon={
+              <Feather name="menu" size={24} color="white"/>
+            }
+          />
+        </View>
+
         <View style={styles.logoContainer}>
           <Image
             resizeMode='cover'
@@ -54,6 +67,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
     alignItems: 'center',
+  },
+  backButton: {
+    width: '100%',
+    justifyContent: 'flex-start',
+    alignItems: 'baseline'
   },
   logoContainer: {
     paddingTop: 40,
