@@ -24,14 +24,14 @@ export const imageFailure = (error) => (
   }
 );
 
+const params = {
+  per_page: 20
+};
+
 export async function axiosSearch() {
   return (dispatch) => {
     dispatch(getImages());
-    axios.get('https://api.unsplash.com/search/photos?query=office&client_id=sk6CBTMciDoHkiXCD-GKdV5D4LrtLzCdy1yIGCLBWsA', {
-      params: {
-        _limit: 2
-      }
-    })
+    axios.get('https://api.unsplash.com/search/photos?query=office&client_id=sk6CBTMciDoHkiXCD-GKdV5D4LrtLzCdy1yIGCLBWsA', { params })
       .then((response) => dispatch(imageSuccess(response.data.results)))
       .catch((error) => dispatch(imageFailure(error)))
   };

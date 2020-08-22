@@ -39,6 +39,8 @@ class Home extends React.Component {
           <FlatList
             data={this.props.images}
             keyExtractor={({ id }, index) => id}
+            contentContainerStyle={styles.imagesList}
+            numColumns={2}
             renderItem={({ item }) => (
 
               <TouchableOpacity onPress={() => this.props.navigation.push('ImageDetails', item)}>
@@ -89,7 +91,13 @@ const styles = StyleSheet.create({
     color: colors.black,
   },
   listContainer: {
-
+    
+  },
+  imagesList: {
+    flexDirection: 'column', 
+    justifyContent: 'space-between',
+    padding: 10,
+    marginBottom: 40
   },
   image: {
     height: 150,
@@ -97,17 +105,16 @@ const styles = StyleSheet.create({
   },
   box: {
     overflow: 'hidden',
-    width: '100%',
     flex: 1,
     marginVertical: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginHorizontal: 10,
     backgroundColor: colors.white,
     borderRadius: 5,
     shadowColor: 'rgba(0, 0, 0, 0.3)',
     shadowOffset: { width: 20, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
+
   }
 });
 
