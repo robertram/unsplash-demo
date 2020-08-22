@@ -9,4 +9,8 @@ export default{
   textLight: '#797979',
   offWhite: '#F0F0F0',
   background: '#494E55',
+  background2: '#20232A',
 }
+
+
+

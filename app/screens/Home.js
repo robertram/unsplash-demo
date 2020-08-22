@@ -8,6 +8,8 @@ import colors from '../constants/colors';
 import { RowItem } from '../components/RowItem';
 import { AntDesign } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 
 class Home extends React.Component {
@@ -16,8 +18,14 @@ class Home extends React.Component {
   }
   render() {
     return (
+      
       <SafeAreaView style={[styles.container]}>
+        <LinearGradient
+          colors={[colors.background, colors.background2 ]}
+          style={styles.linearGradient}
+        >
         <StatusBar backgroundColor={colors.white} style="light" />
+        
         <View style={styles.backButton}>
           <RowItem
             title=""
@@ -59,6 +67,7 @@ class Home extends React.Component {
             )}
           />
         </View>
+        </LinearGradient>
       </SafeAreaView>
     );
   }
@@ -69,6 +78,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
     alignItems: 'center',
+  },
+  linearGradient:{
+    flex: 2,
+    alignItems: 'center',
+    alignSelf: "stretch"
   },
   backButton: {
     width: '100%',
@@ -110,11 +124,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     backgroundColor: colors.white,
     borderRadius: 5,
-    shadowColor: 'rgba(0, 0, 0, 0.3)',
-    shadowOffset: { width: 20, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-
+    shadowColor: 'black',
+    shadowOpacity: 0.75,
+    shadowRadius: 70,
   }
 });
 

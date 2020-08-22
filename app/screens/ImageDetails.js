@@ -12,11 +12,16 @@ import { Ionicons } from '@expo/vector-icons';
 
 import colors from '../constants/colors';
 import { RowItem } from '../components/RowItem';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default ({ route, navigation }) => {
   const { id, alt_description, urls, created_at, description, likes, user } = route.params;
   return (
     <SafeAreaView style={styles.container}>
+       <LinearGradient
+          colors={[colors.background, colors.background2 ]}
+          style={styles.linearGradient}
+        >
       <StatusBar backgroundColor={colors.white} style="light" />
       <View style={styles.backButton}>
         <RowItem
@@ -54,6 +59,7 @@ export default ({ route, navigation }) => {
           <Text style={styles.likes}>{likes} Likes</Text>
         </View>
       </View>
+      </LinearGradient>
 
     </SafeAreaView>
   );
@@ -64,6 +70,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
     alignItems: 'center',
+  },
+  linearGradient:{
+    flex: 2,
+    alignItems: 'center',
+    alignSelf: "stretch"
   },
   backButton: {
     width: '100%',
@@ -92,6 +103,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.white,
     borderRadius: 5,
+    shadowColor: 'black',
+    shadowOpacity: 0.75,
+    shadowRadius: 70,
   },
   text: {
     color: colors.white,
