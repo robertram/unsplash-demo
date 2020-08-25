@@ -16,54 +16,55 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 export default ({ route, navigation }) => {
   const { id, alt_description, urls, created_at, description, likes, user } = route.params;
+  const textLoaded = false;
   return (
     <SafeAreaView style={styles.container}>
-       <LinearGradient
-          colors={[colors.background, colors.background2 ]}
-          style={styles.linearGradient}
-        >
-      <StatusBar backgroundColor={colors.white} style="light" />
-      <View style={styles.backButton}>
-        <RowItem
-          title="Back"
-          onPress={() => { navigation.goBack() }}
-          options
-          leftIcon={
-            <Ionicons name="ios-arrow-back" size={24} color="white" />
-          }
-        />
-      </View>
-      <View style={styles.logoContainer}>
-        <Image
-          resizeMode='cover'
-          style={styles.logo}
-          source={require('../../app/assets/app-logo.png')}
-        />
-      </View>
-      <View style={styles.box}>
-        <Image
-          resizeMode='cover'
-          style={styles.image}
-          source={{
-            uri: urls.small,
-          }}
-        />
-      </View>
-
-
-      <View style={styles.detailsContainer}>
-        <Text style={styles.text}>{alt_description}</Text>
-
-        <View style={styles.likesContainer}>
-          <AntDesign name="heart" size={10} color={colors.gray} />
-          <Text style={styles.likes}>{likes} Likes</Text>
+      <LinearGradient
+        colors={[colors.background, colors.background2]}
+        style={styles.linearGradient}
+      >
+        <StatusBar backgroundColor={colors.white} style="light" />
+        <View style={styles.backButton}>
+          <RowItem
+            title="Back"
+            onPress={() => { navigation.goBack() }}
+            options
+            leftIcon={
+              <Ionicons name="ios-arrow-back" size={24} color="white" />
+            }
+          />
         </View>
-      </View>
+        <View style={styles.logoContainer}>
+          <Image
+            resizeMode='cover'
+            style={styles.logo}
+            source={require('../../app/assets/app-logo.png')}
+          />
+        </View>
+        <View style={styles.box}>
+          <Image
+            resizeMode='cover'
+            style={styles.image}
+            source={{
+              uri: urls.small,
+            }}
+          />
+        </View>
+
+        <View style={styles.detailsContainer}>
+          <Text numberOfLines={1} style={styles.text}>{alt_description}</Text>
+          <View style={styles.likesContainer}>
+            <AntDesign name="heart" size={10} color={colors.gray} />
+            <Text style={styles.likes}>{likes} Likes</Text>
+          </View>
+        </View>
       </LinearGradient>
 
     </SafeAreaView>
   );
 };
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     alignItems: 'center',
   },
-  linearGradient:{
+  linearGradient: {
     flex: 2,
     alignItems: 'center',
     alignSelf: "stretch"
@@ -113,9 +114,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     marginBottom: 20,
-    maxWidth: 155,
+    width: 200,
     textAlign: 'left',
-    marginHorizontal: 0
+    marginHorizontal: 0,
   },
   likes: {
     color: colors.white,

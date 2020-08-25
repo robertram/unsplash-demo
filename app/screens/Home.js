@@ -10,8 +10,6 @@ import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
-
-
 class Home extends React.Component {
   componentDidMount() {
     this.props.axiosSearch();
