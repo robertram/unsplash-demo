@@ -5,8 +5,6 @@ import Home from '../screens/Home';
 import ImageDetails from '../screens/ImageDetails';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Feather } from '@expo/vector-icons';
-import { View } from 'react-native';
-
 
 const MainStack = createStackNavigator();
 const OptionsStack = createStackNavigator();

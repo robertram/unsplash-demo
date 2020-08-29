@@ -16,7 +16,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 export default ({ route, navigation }) => {
   const { id, alt_description, urls, created_at, description, likes, user } = route.params;
-  const textLoaded = false;
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient

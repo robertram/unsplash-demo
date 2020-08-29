@@ -2,11 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, SafeAreaView, Text, Button, FlatList, Image, TouchableOpacity } from 'react-native';
 //import { useDimensions, useDeviceOrientation } from '@react-native-community/hooks';
-import { connect, useDispatch } from 'react-redux';
-import { addNumber, axiosSearch } from '../actions';
+import { connect } from 'react-redux';
+import { axiosSearch } from '../actions';
 import colors from '../constants/colors';
 import { RowItem } from '../components/RowItem';
-import { AntDesign } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
   linearGradient:{
     flex: 2,
     alignItems: 'center',
-    alignSelf: "stretch"
+    alignSelf: 'stretch'
   },
   backButton: {
     width: '100%',
@@ -130,14 +129,12 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    numbers: state.imagesReducer.numbers,
     images: state.imagesReducer.images
   }
 }
 
 //const mapStateToProps = ({ images }) => ({ images });
 const mapDispatchToProps = (dispatch) => ({
-  addNumber: () => dispatch({ type: 'ADD_NUMBER' }),
   axiosSearch: () => dispatch(axiosSearch()),
 })
 
