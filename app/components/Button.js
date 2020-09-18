@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
+
 export const Button = ({ onPress, text }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.button}>
